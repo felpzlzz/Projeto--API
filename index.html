@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="cabecalho">
+      <h1>✅ Minhas Tarefas</h1>
+      <p>Organize seu dia com uma lista conectada à API CRUDCRUD</p>
+    </header>
+
+    <!-- Conexão com a API -->
+    <section class="cartao" id="secao-conexao">
+      <h2>1. Conectar à API</h2>
+      <p class="dica">
+        Acesse <a href="https://crudcrud.com" target="_blank" rel="noopener">crudcrud.com</a>,
+        copie o seu endpoint (ex.: <code>https://crudcrud.com/api/abc123...</code>) e cole abaixo.
+      </p>
+      <form id="form-conexao" class="linha">
+        <input type="url" id="input-endpoint" placeholder="https://crudcrud.com/api/seu-codigo" required autocomplete="off">
+        <button type="submit" id="btn-conectar" class="btn btn-principal">Conectar</button>
+      </form>
+      <p id="status-conexao" class="status" role="status"></p>
+    </section>
+
+    <!-- Lista de tarefas -->
+    <section class="cartao" id="secao-tarefas" hidden>
+      <h2>2. Suas tarefas</h2>
+
+      <form id="form-tarefa" class="linha">
+        <input type="text" id="input-tarefa" placeholder="Digite uma nova tarefa..." maxlength="120" required autocomplete="off">
+        <button type="submit" class="btn btn-principal">Adicionar</button>
+      </form>
+
+      <div class="barra">
+        <div class="filtros" role="group" aria-label="Filtrar tarefas">
+          <button type="button" class="filtro ativo" data-filtro="todas">Todas</button>
+          <button type="button" class="filtro" data-filtro="pendentes">Pendentes</button>
+          <button type="button" class="filtro" data-filtro="concluidas">Concluídas</button>
+        </div>
+        <button type="button" id="btn-atualizar" class="btn btn-suave">↻ Atualizar da API</button>
+      </div>
+
+      <p id="contador" class="contador"></p>
+      <p id="mensagem" class="status" role="status"></p>
+
+      <ul id="lista" class="lista"></ul>
+      <p id="vazio" class="vazio" hidden>Nenhuma tarefa por aqui ainda. 🎉</p>
+    </section>
+
+    <footer class="rodape">Projeto escolar · HTML, CSS e JavaScript · API CRUDCRUD</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
